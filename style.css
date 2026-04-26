@@ -1,0 +1,100 @@
+
+:root {
+    --primary: #38bdf8;
+    --bg-dark: #0f172a;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --container-width: 1300px; /* Slightly wider container for image + text */
+    --transition: all 0.3s ease;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Inter', sans-serif; line-height: 1.6; }
+.container { max-width: var(--container-width); margin: 0 auto; padding: 0 2rem; }
+
+
+header { padding: 1.5rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+nav { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; }
+.logo span { color: var(--primary); }
+.nav-links { display: flex; list-style: none; align-items: center; gap: 2rem; }
+.nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.9rem; font-weight: 500; transition: var(--transition); }
+.nav-links a:hover { color: var(--primary); }
+.btn-primary { border: 1px solid var(--primary); padding: 0.6rem 1.5rem; border-radius: 50px; }
+
+
+/* --- NEW SECTION: THE HERO & IMAGE LAYOUT --- */
+.hero {
+    height: calc(100vh - 100px); /* Fill the screen height */
+    align-items: center;
+}
+
+/* 1. The Split Grid (Flexbox) */
+.split-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem; /* Space between text and cat */
+}
+
+/* 2. Text Column Styling */
+.hero-content {
+    flex: 1; /* Take up half the available space */
+    max-width: 600px;
+}
+
+.hero-title-wrapper { display: flex; align-items: center; gap: 1.5rem; }
+
+h1 {
+    font-size: clamp(3rem, 7vw, 5.5rem); /* Pro typography */
+    font-weight: 800;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.text-outline { color: transparent; -webkit-text-stroke: 1px var(--text-muted); }
+
+.hero-description {
+    max-width: 500px;
+    margin: 2rem 0; /* Space above and below description */
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.cta-btn {
+    display: inline-block;
+    background: var(--primary);
+    color: var(--bg-dark);
+    text-decoration: none;
+    padding: 1rem 2.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.cta-btn:hover { background: #0ea5e9; }
+
+
+/* 3. Image Column Styling */
+.hero-image-wrapper {
+    flex: 1; /* Take up the other half of the space */
+    position: relative; /* Essential for the gradient overlay */
+    height: 70vh; /* Set a specific height for the image area */
+    overflow: hidden; /* Prevent image overflow */
+}
+
+.finn-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* CRUCIAL: Fits image without cropping or stretching */
+    object-position: center; /* Centers image in wrapper */
+}
+
+/* Subtle gradient shadow for a professional blend */
+.image-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to top, var(--bg-dark), transparent);
+}
